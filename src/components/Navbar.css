@@ -1,0 +1,39 @@
+/* src/components/Navbar.css */
+.navbar {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  padding: 16px 32px;
+  /* background-color: rgba(255, 255, 255, 0.2);  */
+  /* semi-transparent white */
+  /* backdrop-filter: blur(10px); */
+   /* blur effect */
+   background-color: white;
+   border-bottom: 2px solid #00aaff;
+   color: #333;
+   
+
+  z-index: 10;
+  display: flex;
+  justify-content: center;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 30px;
+  margin: 0;
+  padding: 0;
+}
+
+.nav-links a {
+  text-decoration: none;
+  color: #003366;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.nav-links a:hover {
+  color: #0077ff;
+}
