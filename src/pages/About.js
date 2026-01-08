@@ -64,9 +64,10 @@ function About() {
         <h2 style={styles.heading}>💼 Experience</h2>
         <div style={styles.content}>
           <ul style={styles.list}>
+          <li style={styles.listItem}><strong>Software Engineer Intern</strong> – Treevah (July-Dec 2025)</li>
           <li style={styles.listItem}><strong>Analyst</strong> – Etrade by Morgan Stanley (2021-2024)</li>
-            <li style={styles.listItem}><strong>Machine Operator/Fabricator</strong> – Diamond Cutting (2020-2021)</li>
-            <li style={styles.listItem}><strong>Data Analyst</strong> – TD Williamson (2019-2020)</li>
+          <li style={styles.listItem}><strong>Machine Operator/Fabricator</strong> – Diamond Cutting (2020-2021)</li>
+          <li style={styles.listItem}><strong>Data Analyst</strong> – TD Williamson (2019-2020)</li>          
             {/* Add more roles or side projects if you want */}
           </ul>
         </div>

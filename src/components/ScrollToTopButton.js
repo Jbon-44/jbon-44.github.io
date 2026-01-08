@@ -21,7 +21,7 @@ function ScrollToTopButton() {
       onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
       style={styles}
     >
-      ↑
+      🔝
     </button>
   );
 }

@@ -5,6 +5,7 @@ import mephoto from './mephoto.jpeg';
 
 function Home() {
   const [showSkills, setShowSkills] = useState(false);
+  const [showOverlay, setShowOverlay] = useState(false);
 
   const styles = {
     container: {
@@ -26,6 +27,56 @@ function Home() {
       position: 'relative',
       maxWidth: '400px',
     },
+    /******** overlay data style *********/
+    overlayBackdrop: {
+      position: 'fixed',
+      inset: 0,
+      backgroundColor: 'rgba(0, 0, 0, 0.55)',
+      display: 'flex',
+      alignItems: 'center',
+      justifyContent: 'center',
+      zIndex: 999,
+      padding: '24px',
+    },
+    overlayCard: {
+      backgroundColor: 'rgba(255, 255, 255, 0.95)',
+      borderRadius: '16px',
+      padding: '24px',
+      maxWidth: '720px',
+      width: '100%',
+      boxShadow: '0 18px 40px rgba(0, 0, 0, 0.25)',
+      position: 'relative',
+      textAlign: 'left',
+    },
+    overlayImage: {
+      width: '100%',
+      maxWidth: '360px',
+      borderRadius: '16px',
+      opacity: 0.75,
+      boxShadow: '0 8px 18px rgba(0, 0, 0, 0.18)',
+    },
+    overlayContent: {
+      display: 'flex',
+      flexWrap: 'wrap',
+      gap: '20px',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+    },
+    overlayClose: {
+      position: 'absolute',
+      top: '12px',
+      right: '12px',
+      border: 'none',
+      background: '#111',
+      color: 'white',
+      borderRadius: '999px',
+      width: '32px',
+      height: '32px',
+      cursor: 'pointer',
+      fontWeight: 'bold',
+      lineHeight: '32px',
+    },
+    /**** end of overlay style ***/
     image: {
       width: '150px',
       height: '150px',
@@ -61,14 +112,31 @@ function Home() {
     { name: 'Python', level: 35 },
     { name: 'HTML/CSS', level: 60 },
     { name: 'React', level: 35 },
-    { name: 'SQL', level: 45}
+    { name: 'SQL', level: 45},
+    { name: 'PHP', level: 45}
   ];
 
   return (
     <div style={styles.container}>
+      <style>{`
+        .profile-photo {
+          transition: transform 180ms ease, box-shadow 180ms ease;
+          will-change: transform;
+        }
+        .profile-photo:hover {
+          transform: scale(1.04);
+          box-shadow: 0 10px 22px rgba(0, 0, 0, 0.18);
+        }
+      `}</style>
       {/* Profile Info */}
       <div style={styles.profileSection}>
-        <img src={mephoto} alt="Portrait of Jose" style={styles.image} />
+        <img
+          src={mephoto}
+          alt="Portrait of Jose"
+          style={styles.image}
+          className="profile-photo"
+          onClick={() => setShowOverlay(true)}
+        />
         <h1 style={styles.heading}>Hey there! 👋 I'm Jose</h1>
         <div style={styles.typedText}>
           <ReactTyped
@@ -84,6 +152,53 @@ function Home() {
         </div>
         <Link to="/projects" style={styles.button}>View My Work</Link>
       </div>
+
+      {/***********   overlay updates  **********/}
+      {showOverlay && (
+        <div
+          style={styles.overlayBackdrop}
+          onClick={() => setShowOverlay(false)}
+          role="button"
+          tabIndex={0}
+          onKeyDown={(event) => {
+            if (event.key === 'Escape') {
+              setShowOverlay(false);
+            }
+          }}
+        >
+          <div
+            style={styles.overlayCard}
+            onClick={(event) => event.stopPropagation()}
+            role="dialog"
+            aria-modal="true"
+          >
+            <button
+              type="button"
+              style={styles.overlayClose}
+              onClick={() => setShowOverlay(false)}
+              aria-label="Close overlay"
+            >
+              ×
+            </button>
+            <div style={styles.overlayContent}>
+              <img src={mephoto} alt="Portrait of Jose" style={styles.overlayImage} />
+              <div style={{ flex: '1 1 240px' }}>
+                <h2 style={{ marginTop: 0 }}>Jose Bonilla</h2>
+                <p style={{ margin: '8px 0' }}>
+                  I am a Software developer who likes building clean UIs and software that is fun to interact with.
+                </p>
+                <p style={{ margin: '8px 0' }}>
+                  Currently exploring full-stack projects, real-time apps, game dev concepts, web app projects looking to land my first full time position as a developer.
+                </p>
+                <p style={{ margin: '8px 0', fontSize: '0.95rem', color: '#444' }}>
+                  Fun fact: I am a sci-fi fanatic! I love Marvel, StarWars, and Startrek.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      )}
+      {/***********   end overlay updates  **********/}
 
       {/* Show/Hide Skills Button */}
       <button

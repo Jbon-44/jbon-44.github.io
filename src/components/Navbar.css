@@ -3,14 +3,17 @@
   position: sticky;
   top: 0;
   width: 100%;
+  max-width: calc(100% - 32px);
   padding: 16px 32px;
-  /* background-color: rgba(255, 255, 255, 0.2);  */
-  /* semi-transparent white */
-  /* backdrop-filter: blur(10px); */
-   /* blur effect */
-   background-color: white;
-   border-bottom: 2px solid #00aaff;
-   color: #333;
+  background-color: rgba(255, 255, 255, 0.6);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.4);
+  color: #333;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 6px 24px rgba(0, 0, 0, 0.08);
+  border-radius: 16px;
+  margin: 12px auto;
+  box-sizing: border-box;
    
 
   z-index: 10;
@@ -35,9 +38,12 @@
   color: #003366;
   font-weight: 600;
   font-size: 1rem;
-  transition: color 0.3s ease;
+  letter-spacing: 0.02em;
+  transition: color 0.3s ease, letter-spacing 0.25s ease, transform 0.25s ease;
 }
 
 .nav-links a:hover {
   color: #0077ff;
+  letter-spacing: 0.08em;
+  transform: scale(1.03);
 }
