@@ -108,24 +108,42 @@ function Home() {
   const skills = [
     { name: 'JavaScript', level: 50 },
     { name: 'C++', level: 60 },
-    { name: 'Java', level: 45 },
+    { name: 'Java', level: 40 },
     { name: 'Python', level: 35 },
     { name: 'HTML/CSS', level: 60 },
-    { name: 'React', level: 35 },
+    { name: 'React', level: 45 },
     { name: 'SQL', level: 45},
-    { name: 'PHP', level: 45}
+    { name: 'PHP', level: 40},
+    { name: 'Vue', level: 10},
+    { name: 'Slim', level: 15},
+    { name: 'Azure', level: 20},
+    { name: 'CI/CD', level: 15},
+    { name: 'REST API', level: 35},
+    { name: 'Git/Github', level: 65},
   ];
 
   return (
     <div style={styles.container}>
       <style>{`
         .profile-photo {
-          transition: transform 180ms ease, box-shadow 180ms ease;
+          transition: transform 320ms ease, box-shadow 320ms ease, outline-color 320ms ease,
+            outline-offset 320ms ease;
           will-change: transform;
         }
         .profile-photo:hover {
           transform: scale(1.04);
           box-shadow: 0 10px 22px rgba(0, 0, 0, 0.18);
+          outline: 6px solid #0077ff;
+          outline-offset: 6px;
+        }
+        .cta-button,
+        .skills-button {
+          transition: transform 220ms ease, box-shadow 220ms ease;
+        }
+        .cta-button:hover,
+        .skills-button:hover {
+          transform: scale(1.04);
+          box-shadow: 0 10px 18px rgba(0, 119, 255, 0.25);
         }
       `}</style>
       {/* Profile Info */}
@@ -150,7 +168,9 @@ function Home() {
             loop
           />
         </div>
-        <Link to="/projects" style={styles.button}>View My Work</Link>
+        <Link to="/projects" style={styles.button} className="cta-button">
+          View My Work
+        </Link>
       </div>
 
       {/***********   overlay updates  **********/}
@@ -185,13 +205,14 @@ function Home() {
               <div style={{ flex: '1 1 240px' }}>
                 <h2 style={{ marginTop: 0 }}>Jose Bonilla</h2>
                 <p style={{ margin: '8px 0' }}>
-                  I am a Software developer who likes building clean UIs and software that is fun to interact with.
+                  Hi there, my name is Jose. I am an aspiring sotware developer who enjoys building fun interactive and challenging software. 
+                  I am very curious in learning and keeping up with the latest technology and look forward to contributing to new developments.
                 </p>
                 <p style={{ margin: '8px 0' }}>
-                  Currently exploring full-stack projects, real-time apps, game dev concepts, web app projects looking to land my first full time position as a developer.
+                  Currently I am exploring and building full-stack projects, real-time apps, game dev concepts, web app projects and looking to land my first full time position as a developer.
                 </p>
                 <p style={{ margin: '8px 0', fontSize: '0.95rem', color: '#444' }}>
-                  Fun fact: I am a sci-fi fanatic! I love Marvel, StarWars, and Startrek.
+                  Fun fact: As you can tell from my shirt, I am a sci-fi fanatic! I love Marvel, StarWars, and Startrek.
                 </p>
               </div>
             </div>
@@ -213,6 +234,7 @@ function Home() {
           fontWeight: 'bold',
           cursor: 'pointer',
         }}
+        className="skills-button"
       >
         {showSkills ? 'Hide Skills' : 'Show Skills'}
       </button>

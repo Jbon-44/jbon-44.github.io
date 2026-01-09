@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import pongstart from '../images/pong-start.png';
 import pongend from '../images/pong-end.png';
 import bigbee from '../images/bees-big.png';
@@ -8,26 +8,19 @@ import web from '../images/myweb.png';
 import httpscreenshot from '../images/httpserverterminal.png';
 import chat from '../images/connectionchat.png';
 import joinroom from '../images/JoinRoom.png';
-import inroom from '../images/InRoomChat.png';
-import moreinroom from '../images/MoreinRoomChat.png';
 import reactlogin from '../images/reactlogin.png';
 import reactchatroom from '../images/reactchatroom.png';
 import DNS from '../images/DNS.png';
 import DNSconnection from '../images/DNSconnection.png';
-import startDNS from '../images/startDNS.png';
+// import startDNS from '../images/startDNS.png';
 import synthesizer from '../images/synthesizer.png';
 import knivesmenu from '../images/rainingknivesmenu.png';
 import knivesingame from '../images/rainingknivesingame.png';
 
-
 // import rightbee from '../images/bees-right.png';
 // import beeclosing from '../images/bees-closing.png';
 
-
-
-
 function Projects() {
-  const [showWebchatMore, setShowWebchatMore] = useState(false);
   const sectionStyle = {
     position: 'relative',
     zIndex: 1,
@@ -47,13 +40,13 @@ function Projects() {
     marginBottom: '16px',
   };
 
-  const beegameStyle = {
-    // fontSize: '2rem',
-    // color: '#333',
-    borderBottom: '2px solid #efef0eff',
-    paddingBottom: '8px',
-    marginBottom: '16px',
-  };
+  // const beegameStyle = {
+  //   // fontSize: '2rem',
+  //   // color: '#333',
+  //   borderBottom: '2px solid #efef0eff',
+  //   paddingBottom: '8px',
+  //   marginBottom: '16px',
+  // };
 
 
   const projectItem = {
@@ -154,7 +147,7 @@ const mediaBlockStyle = {
               {/* add more */}
             </div>
               <li style={projectItem}>
-              [<a href="https://github.com/ojkavapalu/6010-Final-Project" target="_blank" rel="noreferrer">GitHub link to Pong Game Source Code</a>]
+              [<a href="https://github.com/ojkavapalu/6010-Final-Project" target="_blank" rel="noreferrer">GitHub Source Code</a>]
               </li>
           </div>
         </div>
@@ -162,7 +155,7 @@ const mediaBlockStyle = {
         {/*Not the Bees layout */}
         <div style={projectsGridStyle}>
           <div style={projectCardStyle} className="project-card">
-            <h2 style={beegameStyle}><strong>NotTheBees game</strong></h2>Used DOM concepts to create a bees game. 
+            <h2><strong>NotTheBees game</strong></h2>Used DOM concepts to create a bees game. 
             HTML5 for Canvas for rendering, Vanilla JavaScript for game logic and animation (requestAnimationFrame), CSS for basic layout. 
             Image assets (.png, .webp) for sprites and background.
             <div style={imageRowStyle}>
@@ -176,8 +169,8 @@ const mediaBlockStyle = {
   
               <div style={mediaBlockStyle}>
                 <ul style={gameDescription}>
-                  <li> Click “Restart Game” to spawn a new swarm and play again.</li>
                   <li>When all bees reach the honey, the game ends and a big bee appears.</li>
+                  <li> Click “Restart Game” to spawn a new swarm and play again.</li>
                 </ul>
                 <img src={bigbee} alt="Big bee" style={projectImageStyle} loading="lazy" decoding="async" />
               </div>
@@ -186,13 +179,16 @@ const mediaBlockStyle = {
             <p>Summary: a playful mouse controlled canvas game where a swarm of bees relentlessly 
               tracks the honey you move around the screen. When every bee catches up, 
               they combine into a big bee and you can restart.</p>
+            <li style={projectItem}>
+              [<a href="https://github.com/Jbon-44/dev-portfolio-projects/tree/main/NotTheBees" target="_blank" rel="noreferrer">GitHub Source Code</a>]
+            </li>
           </div>
         </div>
 
         {/* Music Synthesizer */}
         <div style={projectsGridStyle}>
           <div style={projectCardStyle} className="project-card">
-            <h2 style={beegameStyle}><strong>Music Synthesizer</strong></h2> Desktop synthesizer app that generates audio waveforms in real timeJava (core language), 
+            <h2><strong>Music Synthesizer</strong></h2> Desktop synthesizer app that generates audio waveforms in real time Java (core language), 
             JavaFX for the desktop UI and interactive widgets, 
             Custom audio synthesis logic (DSP style waveform generation),
             OOP patterns for modular components (sources, widgets, controllers).
@@ -208,6 +204,7 @@ const mediaBlockStyle = {
               </div>
               {/* add more */}
             </div>
+            {/* need to add synthesizer link */}
           </div>
         </div>
 
@@ -226,9 +223,12 @@ const mediaBlockStyle = {
                   <li> Includes a CLI with modes: --interp, --print, --pretty-print, --testt</li>
                   <li> Unit tests for parser/evaluator behavior (Catch2) </li>
                 </ul>
-                <img src={scriptinterp} alt="Big bee" style={projectImageStyle} loading="lazy" decoding="async" />
+                <img src={scriptinterp} alt="ScriptInterpreter" style={projectImageStyle} loading="lazy" decoding="async" />
               </div>
             </div>
+            <li style={projectItem}>
+              [<a href="https://github.com/Jbon-44/dev-portfolio-projects/tree/main/ScriptingInterpreter" target="_blank" rel="noreferrer">GitHub Source Code</a>]
+            </li>
           </div>
         </div>
 
@@ -253,6 +253,9 @@ const mediaBlockStyle = {
               </div>
               {/* add more */}
             </div>
+            <li style={projectItem}>
+              [<a href="https://github.com/Jbon-44/dev-portfolio-projects/tree/main/MyHttpServer" target="_blank" rel="noreferrer">GitHub Source Code</a>]
+            </li>
           </div>
         </div>
 
@@ -260,7 +263,7 @@ const mediaBlockStyle = {
         {/** Webchat */}
         <div style={projectsGridStyle}>
           <div style={projectCardStyle} className="project-card">
-            <h2><strong>Webchat</strong></h2> JavaScript, HTML, CSS, and Java (WebSocket server packaged as RoomChatServer.jar)
+            <h2><strong>Webchat</strong></h2> JavaScript, HTML, CSS, and Java (WebSocket server packaged as RoomChatServer.jar file)
             <div style={imageRowStyle}>
               <div style={mediaBlockStyle}>
                 <ul style={gameDescription}>
@@ -276,50 +279,19 @@ const mediaBlockStyle = {
                 </ul>
                 <img src={joinroom} alt="joining chat room" style={projectImageStyle} loading="lazy" decoding="async" />
               </div>
-              {showWebchatMore && (
-                <>
-                  <div style={mediaBlockStyle}>
-                    <ul style={gameDescription}>
-                      <li> Renders message, join, and leave events into a scrolling chat log.</li>
-                      <li> Enforces lowercase room names on the join form for consistency.</li>
-                    </ul>
-                    <img src={inroom} alt="in chat room" style={projectImageStyle} loading="lazy" decoding="async" />
-                  </div>
-                  <div style={mediaBlockStyle}>
-                    <ul style={gameDescription}>
-                      <li> Renders message, join, and leave events into a scrolling chat log.</li>
-                      <li> Enforces lowercase room names on the join form for consistency.</li>
-                    </ul>
-                    <img src={moreinroom} alt="in chat room" style={projectImageStyle} loading="lazy" decoding="async" />
-                  </div>
-                </>
-              )}
               {/* add more */}
             </div>
-            <button
-              type="button"
-              onClick={() => setShowWebchatMore((prev) => !prev)}
-              style={{
-                alignSelf: 'flex-start',
-                padding: '8px 12px',
-                borderRadius: '6px',
-                border: '1px solid #0077ff',
-                backgroundColor: '#fff',
-                color: '#0077ff',
-                cursor: 'pointer',
-                fontWeight: 600,
-              }}
-            >
-              {showWebchatMore ? 'Show fewer screenshots' : 'Load more screenshots'}
-            </button>
+            <li style={projectItem}>
+              [<a href="https://github.com/Jbon-44/dev-portfolio-projects/tree/main/WebChat" target="_blank" rel="noreferrer">GitHub Source Code</a>]
+            </li>
           </div>
         </div>
 
 
-        {/* React Web Chat */}
+        {/* React Chat client */}
         <div style={projectsGridStyle}>
           <div style={projectCardStyle} className="project-card">
-            <h2><strong>React Chat Client server</strong></h2>React 18 with functional components and hooks, Create React App tooling (react-scripts) for build/dev, Native WebSocket API for real-time messaging, Testing Library + Jest DOM for UI test scaffolding, CSS for layout and styling.
+            <h2><strong>React Chat Client server</strong></h2>Created client web chat server in react with functional components, hooks, CSS for layout and styling.
             <div style={imageRowStyle}>
              <div style={mediaBlockStyle}>
                 <ul style={gameDescription}>
@@ -334,12 +306,15 @@ const mediaBlockStyle = {
                 <ul style={gameDescription}>
                   <li> Supports sending with a button or Enter key for quick chat UX.</li>
                   <li> Targets a local server at ws://localhost:8080 for real-time communication.</li>
-                  <li> Multiple please can also join room</li>
+                  <li> Allows multiple users to join a single room</li>
                 </ul>
                 <img src={reactchatroom} alt="in chat room" style={projectImageStyle} loading="lazy" decoding="async" />
               </div>
               {/* add more */}
             </div>
+            <li style={projectItem}>
+              [<a href="https://github.com/Jbon-44/dev-portfolio-projects/tree/main/reactchatclient" target="_blank" rel="noreferrer">GitHub Source Code</a>]
+            </li>
           </div>
         </div>
 
@@ -352,14 +327,8 @@ const mediaBlockStyle = {
               <div style={mediaBlockStyle}>
                 <ul style={gameDescription}>
                   <li> Implements a UDP DNS resolver that listens on port 8053.</li>
-                  <li>Parses incoming DNS queries, and replies with DNS answers.</li>
-                </ul>
-                <img src={startDNS} alt="in chat room" style={projectImageStyle} loading="lazy" decoding="async" />
-              </div>
-              <div style={mediaBlockStyle}>
-                <ul style={gameDescription}>
+                  <li> Parses incoming DNS queries, and replies with DNS answers.</li>
                   <li> Uses an in memory cache keyed by DNS questions to serve repeat queries quickly and expire entries by TTL.</li>
-                  <li> For cache misses, forwards the raw request to Google DNS (8.8.8.8) and relays the response.</li>
                 </ul>
                 <img src={DNSconnection} alt="in chat room" style={projectImageStyle} loading="lazy" decoding="async" />
               </div>
@@ -367,11 +336,15 @@ const mediaBlockStyle = {
                 <ul style={gameDescription}>
                   <li> Encodes/decodes DNS headers, questions, and records, including basic name compression support.</li>
                   <li> Targets a minimal, dependency free Java implementation using only the standard library.</li>
+                  <li> For cache misses, forwards the raw request to Google DNS (8.8.8.8) and relays the response.</li>
                 </ul>
                 <img src={DNS} alt="in chat room" style={projectImageStyle} loading="lazy" decoding="async" />
               </div>
               {/* add more */}
             </div>
+            <li style={projectItem}>
+              [<a href="https://github.com/Jbon-44/dev-portfolio-projects/tree/main/DNSResolver" target="_blank" rel="noreferrer">GitHub Source Code</a>]
+            </li>
           </div>
         </div>
 
@@ -382,22 +355,27 @@ const mediaBlockStyle = {
             <h2><strong>TSLlite</strong></h2> Built a simplified version of the TLS protocol using Java.
             <div style={imageRowStyle}>
               <ul style={gameDescription}>
-                <li> Implements a UDP DNS resolver that listens on port 8053, parses incoming DNS queries, and replies with DNS answers.</li>
-                <li> Uses an in memory cache keyed by DNS questions to serve repeat queries quickly and expire entries by TTL.</li>
-                <li> For cache misses, forwards the raw request to Google DNS (8.8.8.8) and relays the response.</li>
-                <li> Encodes/decodes DNS headers, questions, and records, including basic name compression support.</li>
-                <li> Targets a minimal, dependency free Java implementation using only the standard library.</li>
+                <li> Establishes a client server connection on localhost.</li>
+                <li> Performs a TLS style handshake.</li>
+                <li> Client sends a nonce.</li>
+                <li> Server and client exchange X.509 certificates and Diffie–Hellman public values.</li>
+                <li> Each side signs its DH public value with RSA for authenticity.</li>
+                <li> Both sides derive shared session keys via a simplified HKDF.</li>
+                <li> Handshake integrity is verified with HMAC SHA256.</li>
+                <li> After the handshake, the server sends a “secure message” to the client.</li>
               </ul>
               {/* add more */}
             </div>
-            <p>Used DOM concepts...</p>
+            <li style={projectItem}>
+              [<a href="https://github.com/Jbon-44/dev-portfolio-projects/tree/main/TLSlite" target="_blank" rel="noreferrer">GitHub Source Code</a>]
+            </li>
           </div>
         </div>
 
         {/*Raining Knives */}
         <div style={projectsGridStyle}>
           <div style={projectCardStyle} className="project-card">
-            <h2><strong>Raining Knives</strong></h2>Created a C++ game using SFML in Qt Creator where the player dodges falling knives.
+            <h2><strong>Raining Knives</strong></h2>Created a C++ game in Qt Creator.
             <div style={imageRowStyle}>
               <div style={mediaBlockStyle}>
               <ul style={gameDescription}>
@@ -418,6 +396,9 @@ const mediaBlockStyle = {
               </div>
               {/* add more */}
             </div>
+            {/* <li style={projectItem}>
+              [<a href="https://github.com/Jbon-44/dev-portfolio-projects/tree/main/RainingKnives" target="_blank" rel="noreferrer">GitHub Source Code</a>]
+            </li> */}
           </div>
         </div>
       </div>
