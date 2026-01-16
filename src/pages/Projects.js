@@ -49,10 +49,11 @@ function Projects() {
   // };
 
 
-  const projectItem = {
+const projectItem = {
     marginBottom: '12px',
     fontSize: '1.1rem',
     color: '#555',
+    overflowWrap: 'anywhere',
   };
 
 const projectsGridStyle = {
@@ -81,8 +82,9 @@ const imageRowStyle = {
 };
 
 const projectImageStyle = {
-  width: '700px',
-  height: '450px',
+  width: '100%',
+  maxWidth: '700px',
+  height: 'auto',
   objectFit: 'cover',
   borderRadius: '6px',
 };
@@ -116,33 +118,57 @@ const mediaBlockStyle = {
           transform: scale(1.02);
           box-shadow: 0 12px 28px rgba(0, 0, 0, 0.22);
         }
+        .project-card ul {
+          margin: 0;
+          padding-left: 18px;
+        }
+        .project-card li {
+          overflow-wrap: anywhere;
+        }
+        @media (max-width: 768px) {
+          .projects-grid {
+            grid-template-columns: 1fr;
+            gap: 24px;
+          }
+          .image-row {
+            flex-direction: column;
+          }
+          .media-block {
+            width: 100%;
+          }
+          .project-image {
+            width: 100%;
+            max-width: 100%;
+            height: auto;
+          }
+        }
       `}</style>
       {/* Class Projects */}
       <div style={sectionStyle}>
         <h2 style={headingStyle}>📘 Class Projects</h2>
-        <div style={projectsGridStyle}>
+        <div style={projectsGridStyle} className="projects-grid">
           <div style={projectCardStyle} className="project-card">
 
             {/*Pong game layout */}
             <h2><strong>Pong Game</strong></h2>Built classic Pong game entirely in C++ using the SFML (Simple and Fast Multimedia Library) framework. The game features real-time input handling, 2D sprite rendering, collision detection, and score tracking.
-            <div style={imageRowStyle}>
-              <div style={mediaBlockStyle}>
+            <div style={imageRowStyle} className="image-row">
+              <div style={mediaBlockStyle} className="media-block">
                 <ul style={gameDescription}>
                   <li>Two player game</li>
                   <li>Both players start with zero points</li>
                   <li>Ball origin starts at center screen</li>
                   <li>Paddles start at same size</li>
                 </ul>
-                <img src={pongstart} alt="Pong start" style={projectImageStyle} loading="lazy" decoding="async" />
+                <img src={pongstart} alt="Pong start" style={projectImageStyle} className="project-image" loading="lazy" decoding="async" />
               </div>
-              <div style={mediaBlockStyle}>
+              <div style={mediaBlockStyle} className="media-block">
                 <ul style={gameDescription}>
                   <li>Score is collected on scoreboard</li>
                   <li>First player to reach 5 wins</li>
                   <li>End of game screen shows winner</li>
                   <li>Window closes 3 seconds after finish</li>
                 </ul>
-                <img src={pongend} alt="Pong end" style={projectImageStyle} loading="lazy" decoding="async" />
+                <img src={pongend} alt="Pong end" style={projectImageStyle} className="project-image" loading="lazy" decoding="async" />
               </div>
               {/* add more */}
             </div>
@@ -153,26 +179,26 @@ const mediaBlockStyle = {
         </div>
         
         {/*Not the Bees layout */}
-        <div style={projectsGridStyle}>
+        <div style={projectsGridStyle} className="projects-grid">
           <div style={projectCardStyle} className="project-card">
             <h2><strong>NotTheBees game</strong></h2>Used DOM concepts to create a bees game. 
             HTML5 for Canvas for rendering, Vanilla JavaScript for game logic and animation (requestAnimationFrame), CSS for basic layout. 
             Image assets (.png, .webp) for sprites and background.
-            <div style={imageRowStyle}>
-              <div style={mediaBlockStyle}>
+            <div style={imageRowStyle} className="image-row">
+              <div style={mediaBlockStyle} className="media-block">
                 <ul style={gameDescription}>
                   <li> Move the mouse to move the honey.</li>
                   <li> Bees continuously steer toward the honey and follow it.</li>
                 </ul>
-                <img src={leftbee} alt="Bees left" style={projectImageStyle} loading="lazy" decoding="async" />
+                <img src={leftbee} alt="Bees left" style={projectImageStyle} className="project-image" loading="lazy" decoding="async" />
               </div>
   
-              <div style={mediaBlockStyle}>
+              <div style={mediaBlockStyle} className="media-block">
                 <ul style={gameDescription}>
                   <li>When all bees reach the honey, the game ends and a big bee appears.</li>
                   <li> Click “Restart Game” to spawn a new swarm and play again.</li>
                 </ul>
-                <img src={bigbee} alt="Big bee" style={projectImageStyle} loading="lazy" decoding="async" />
+                <img src={bigbee} alt="Big bee" style={projectImageStyle} className="project-image" loading="lazy" decoding="async" />
               </div>
               {/* add more */}
             </div>
@@ -186,21 +212,21 @@ const mediaBlockStyle = {
         </div>
 
         {/* Music Synthesizer */}
-        <div style={projectsGridStyle}>
+        <div style={projectsGridStyle} className="projects-grid">
           <div style={projectCardStyle} className="project-card">
             <h2><strong>Music Synthesizer</strong></h2> Desktop synthesizer app that generates audio waveforms in real time Java (core language), 
             JavaFX for the desktop UI and interactive widgets, 
             Custom audio synthesis logic (DSP style waveform generation),
             OOP patterns for modular components (sources, widgets, controllers).
-            <div style={imageRowStyle}>
-              <div style={mediaBlockStyle}>
+            <div style={imageRowStyle} className="image-row">
+              <div style={mediaBlockStyle} className="media-block">
                 <ul style={gameDescription}>
                   <li> Modular signal chain with sources (e.g., variable frequency sine wave) and controls</li>
                   <li> Interactive UI widgets for adjusting parameters like frequency and volume</li>
                   <li> Emphasis on clean separation between audio generation and UI controls</li>
                   <li> Extensible design so new wave types and effects can be added easily</li>
                 </ul>
-                <img src={synthesizer} alt="Bees left" style={projectImageStyle} loading="lazy" decoding="async" />
+                <img src={synthesizer} alt="Bees left" style={projectImageStyle} className="project-image" loading="lazy" decoding="async" />
               </div>
               {/* add more */}
             </div>
@@ -210,11 +236,11 @@ const mediaBlockStyle = {
 
 
           {/*Script Interpreter layout*/}
-        <div style={projectsGridStyle}>
+        <div style={projectsGridStyle} className="projects-grid">
           <div style={projectCardStyle} className="project-card">
             <h2><strong>Script Interpreter</strong></h2> Interpreter for a Small Expression Language (C++)
-            <div style={imageRowStyle}>
-              <div style={mediaBlockStyle}>
+            <div style={imageRowStyle} className="image-row">
+              <div style={mediaBlockStyle} className="media-block">
                 <ul style={gameDescription}>
                   <li> Parses a custom expression language into an AST</li>
                   <li> Evaluates expressions with an environment (variables/bindings)</li>
@@ -223,7 +249,7 @@ const mediaBlockStyle = {
                   <li> Includes a CLI with modes: --interp, --print, --pretty-print, --testt</li>
                   <li> Unit tests for parser/evaluator behavior (Catch2) </li>
                 </ul>
-                <img src={scriptinterp} alt="ScriptInterpreter" style={projectImageStyle} loading="lazy" decoding="async" />
+                <img src={scriptinterp} alt="ScriptInterpreter" style={projectImageStyle} className="project-image" loading="lazy" decoding="async" />
               </div>
             </div>
             <li style={projectItem}>
@@ -233,23 +259,23 @@ const mediaBlockStyle = {
         </div>
 
       {/**HTTP mini server layout */}
-        <div style={projectsGridStyle}>
+        <div style={projectsGridStyle} className="projects-grid">
           <div style={projectCardStyle} className="project-card">
             <h2><strong>MyHttpServer</strong></h2>Built a HTTP server using websocket, HTTPRequest and HTTPResponse classes to parse requests using Java, Javascript, CSS, HTML.
-            <div style={imageRowStyle}>
-              <div style={mediaBlockStyle}>
+            <div style={imageRowStyle} className="image-row">
+              <div style={mediaBlockStyle} className="media-block">
                 <ul style={gameDescription}>
                     <li>Accepts TCP connections and parses the first request line</li>
                     <li>Maps / to index.html and serves files from src/</li>
                 </ul>
-              <img src={httpscreenshot} alt="httpscreenshot" style={projectImageStyle} loading="lazy" decoding="async" />
+              <img src={httpscreenshot} alt="httpscreenshot" style={projectImageStyle} className="project-image" loading="lazy" decoding="async" />
               </div>
-              <div style={mediaBlockStyle}>
+              <div style={mediaBlockStyle} className="media-block">
                 <ul style={gameDescription}>
                   <li>Sends basic HTTP headers and file contents (HTML/CSS)</li>
                   <li>Returns a simple 404 Not Found for missing files</li>
                 </ul>
-              <img src={web} alt="web" style={projectImageStyle} loading="lazy" decoding="async" />
+              <img src={web} alt="web" style={projectImageStyle} className="project-image" loading="lazy" decoding="async" />
               </div>
               {/* add more */}
             </div>
@@ -261,23 +287,23 @@ const mediaBlockStyle = {
 
 
         {/** Webchat */}
-        <div style={projectsGridStyle}>
+        <div style={projectsGridStyle} className="projects-grid">
           <div style={projectCardStyle} className="project-card">
             <h2><strong>Webchat</strong></h2> JavaScript, HTML, CSS, and Java (WebSocket server packaged as RoomChatServer.jar file)
-            <div style={imageRowStyle}>
-              <div style={mediaBlockStyle}>
+            <div style={imageRowStyle} className="image-row">
+              <div style={mediaBlockStyle} className="media-block">
                 <ul style={gameDescription}>
                   <li> Uses localStorage to carry username/room from the join page to the chat page.</li>
                   <li> Connects to a WebSocket server at ws://host and sends join and message commands.</li>
                 </ul>
-                <img src={chat} alt="chat connection" style={projectImageStyle} loading="lazy" decoding="async" />
+                <img src={chat} alt="chat connection" style={projectImageStyle} className="project-image" loading="lazy" decoding="async" />
               </div>
-              <div style={mediaBlockStyle}>  
+              <div style={mediaBlockStyle} className="media-block">  
                 <ul style={gameDescription}>
                   <li> Renders message, join, and leave events into a scrolling chat log.</li>
                   <li> Enforces lowercase room names on the join form for consistency.</li>
                 </ul>
-                <img src={joinroom} alt="joining chat room" style={projectImageStyle} loading="lazy" decoding="async" />
+                <img src={joinroom} alt="joining chat room" style={projectImageStyle} className="project-image" loading="lazy" decoding="async" />
               </div>
               {/* add more */}
             </div>
@@ -289,26 +315,26 @@ const mediaBlockStyle = {
 
 
         {/* React Chat client */}
-        <div style={projectsGridStyle}>
+        <div style={projectsGridStyle} className="projects-grid">
           <div style={projectCardStyle} className="project-card">
             <h2><strong>React Chat Client server</strong></h2>Created client web chat server in react with functional components, hooks, CSS for layout and styling.
-            <div style={imageRowStyle}>
-             <div style={mediaBlockStyle}>
+            <div style={imageRowStyle} className="image-row">
+             <div style={mediaBlockStyle} className="media-block">
                 <ul style={gameDescription}>
                   <li> Browser-based chat client that connects to a WebSocket server and supports room-based messaging.</li>
                   <li> Simple login flow collects a username and room, then transitions to the live chat view.</li>
                   <li> Sends JSON events for join and message actions; renders incoming messages in a scrolling feed.</li>
                 </ul>
-                <img src={reactlogin} alt="in chat room" style={projectImageStyle} loading="lazy" decoding="async" />
+                <img src={reactlogin} alt="in chat room" style={projectImageStyle} className="project-image" loading="lazy" decoding="async" />
               </div>
 
-              <div style={mediaBlockStyle}>
+              <div style={mediaBlockStyle} className="media-block">
                 <ul style={gameDescription}>
                   <li> Supports sending with a button or Enter key for quick chat UX.</li>
                   <li> Targets a local server at ws://localhost:8080 for real-time communication.</li>
                   <li> Allows multiple users to join a single room</li>
                 </ul>
-                <img src={reactchatroom} alt="in chat room" style={projectImageStyle} loading="lazy" decoding="async" />
+                <img src={reactchatroom} alt="in chat room" style={projectImageStyle} className="project-image" loading="lazy" decoding="async" />
               </div>
               {/* add more */}
             </div>
@@ -320,25 +346,25 @@ const mediaBlockStyle = {
 
 
       {/*DNS Resolver Layout */}
-        <div style={projectsGridStyle}>
+        <div style={projectsGridStyle} className="projects-grid">
           <div style={projectCardStyle} className="project-card">
             <h2><strong>DNS Resolver/Server</strong></h2> Built a caching DNS resolver using Java, UDP sockets(DatagramSocket/DatagramPacket), DNS protocol parsing and serialization In memory caching with HashMap.
-            <div style={imageRowStyle}>
-              <div style={mediaBlockStyle}>
+            <div style={imageRowStyle} className="image-row">
+              <div style={mediaBlockStyle} className="media-block">
                 <ul style={gameDescription}>
                   <li> Implements a UDP DNS resolver that listens on port 8053.</li>
                   <li> Parses incoming DNS queries, and replies with DNS answers.</li>
                   <li> Uses an in memory cache keyed by DNS questions to serve repeat queries quickly and expire entries by TTL.</li>
                 </ul>
-                <img src={DNSconnection} alt="in chat room" style={projectImageStyle} loading="lazy" decoding="async" />
+                <img src={DNSconnection} alt="in chat room" style={projectImageStyle} className="project-image" loading="lazy" decoding="async" />
               </div>
-              <div style={mediaBlockStyle}>
+              <div style={mediaBlockStyle} className="media-block">
                 <ul style={gameDescription}>
                   <li> Encodes/decodes DNS headers, questions, and records, including basic name compression support.</li>
                   <li> Targets a minimal, dependency free Java implementation using only the standard library.</li>
                   <li> For cache misses, forwards the raw request to Google DNS (8.8.8.8) and relays the response.</li>
                 </ul>
-                <img src={DNS} alt="in chat room" style={projectImageStyle} loading="lazy" decoding="async" />
+                <img src={DNS} alt="in chat room" style={projectImageStyle} className="project-image" loading="lazy" decoding="async" />
               </div>
               {/* add more */}
             </div>
@@ -350,10 +376,10 @@ const mediaBlockStyle = {
 
 
         {/**TSL Lite display */}
-        <div style={projectsGridStyle}>
+        <div style={projectsGridStyle} className="projects-grid">
           <div style={projectCardStyle} className="project-card">
             <h2><strong>TSLlite</strong></h2> Built a simplified version of the TLS protocol using Java.
-            <div style={imageRowStyle}>
+            <div style={imageRowStyle} className="image-row">
               <ul style={gameDescription}>
                 <li> Establishes a client server connection on localhost.</li>
                 <li> Performs a TLS style handshake.</li>
@@ -373,26 +399,26 @@ const mediaBlockStyle = {
         </div>
 
         {/*Raining Knives */}
-        <div style={projectsGridStyle}>
+        <div style={projectsGridStyle} className="projects-grid">
           <div style={projectCardStyle} className="project-card">
             <h2><strong>Raining Knives</strong></h2>Created a C++ game in Qt Creator.
-            <div style={imageRowStyle}>
-              <div style={mediaBlockStyle}>
+            <div style={imageRowStyle} className="image-row">
+              <div style={mediaBlockStyle} className="media-block">
               <ul style={gameDescription}>
                 <li> Arcade dodge game where you move a character to avoid falling knives and survive as long as possible.</li>
                 <li> Main menu supports sign up, sign in, or guest play, then launches the game scene.</li>
                 <li> Gameplay uses a moving cloud that only drops knives when the spawn point passes under it.</li>
               </ul>
-              <img src={knivesmenu} alt="in chat room" style={projectImageStyle} loading="lazy" decoding="async" />
+              <img src={knivesmenu} alt="in chat room" style={projectImageStyle} className="project-image" loading="lazy" decoding="async" />
               </div>
               
-            <div style={mediaBlockStyle}>
+            <div style={mediaBlockStyle} className="media-block">
               <ul style={gameDescription}>
                 <li> Difficulty ramps up by increasing knife and cloud speed over time.</li>
                 <li> Score and lives are tracked with on-screen HUD, sound effects, and a game-over overlay.</li>
                 <li> Local profiles and high scores persist in JSON files stored in the OS app data folder.</li>
               </ul>
-              <img src={knivesingame} alt="in chat room" style={projectImageStyle} loading="lazy" decoding="async" />
+              <img src={knivesingame} alt="in chat room" style={projectImageStyle} className="project-image" loading="lazy" decoding="async" />
               </div>
               {/* add more */}
             </div>
