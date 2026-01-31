@@ -7,6 +7,7 @@ import resumePdf from '../images/Resume-Jose-Bonilla.pdf';
 function Home() {
   const [showSkills, setShowSkills] = useState(false);
   const [showOverlay, setShowOverlay] = useState(false);
+  const [openSkillGroup, setOpenSkillGroup] = useState(null);
 
   const styles = {
     container: {
@@ -115,22 +116,42 @@ function Home() {
     },
   };
 
-  const skills = [
-    { name: 'JavaScript', level: 50 },
-    { name: 'C++', level: 60 },
-    { name: 'Java', level: 40 },
-    { name: 'Python', level: 35 },
-    { name: 'HTML/CSS', level: 60 },
-    { name: 'React', level: 45 },
-    { name: 'SQL', level: 45},
-    { name: 'PHP', level: 40},
-    { name: 'Vue', level: 10},
-    { name: 'Slim', level: 15},
-    { name: 'Azure', level: 20},
-    { name: 'CI/CD', level: 15},
-    { name: 'REST API', level: 35},
-    { name: 'Git/Github', level: 65},
+  const skillGroups = [
+    {
+      title: 'Languages',
+      items: [
+        { name: 'JavaScript', level: 50 },
+        { name: 'C++', level: 60 },
+        { name: 'Java', level: 40 },
+        { name: 'Python', level: 35 },
+        { name: 'HTML/CSS', level: 60 },
+        { name: 'SQL', level: 45 },
+        { name: 'PHP', level: 30 },
+        { name: 'C#', level: 30}
+      ],
+    },
+    {
+      title: 'Frameworks & Libraries',
+      items: [
+        { name: 'React', level: 45 },
+        { name: 'Vue', level: 10 },
+        { name: 'Slim', level: 15 },
+      ],
+    },
+    {
+      title: 'Engineering Practices',
+      items: [
+        { name: 'REST APIs', level: 35 },
+        { name: 'CI/CD', level: 15 },
+        { name: 'Git/GitHub', level: 65 },
+        { name: 'Azure', level: 20 },
+      ],
+    },
   ];
+
+  const toggleSkillGroup = (title) => {
+    setOpenSkillGroup((current) => (current === title ? null : title));
+  };
 
   return (
     <div style={styles.container}>
@@ -176,17 +197,16 @@ function Home() {
           className="profile-photo"
           onClick={() => setShowOverlay(true)}
         />
-        <h1 style={styles.heading}>Hey there! 👋 I'm Jose</h1>
+        <h1 style={styles.heading}>Hey there! I'm Jose</h1>
         <div style={styles.typedText}>
           <ReactTyped
             strings={[
-              "I'm a Software Developer.",
-              "I build C++ Java, and JavaScript projects.",
-              "I love clean code and creative UI.",
+              "I'm a Software Engineer.",
+              "I hope you enjoy exploring my portfolio.",
             ]}
             typeSpeed={50}
             backSpeed={40}
-            loop
+            // loop
           />
         </div>
         <div className="cta-row">
@@ -274,7 +294,7 @@ function Home() {
       {/* Skills Box */}
       <div
         style={{
-          maxHeight: showSkills ? '500px' : '0px',
+          maxHeight: showSkills ? '520px' : '0px',
           overflow: 'hidden',
           transition: 'max-height 1.5s ease',
           marginTop: showSkills ? '20px' : '0px',
@@ -289,19 +309,69 @@ function Home() {
           boxShadow: '0 2px 6px rgba(0,0,0,0.15)',
         }}>
           <div style={{ fontWeight: 'bold', marginBottom: '10px' }}>🧠 My Skills</div>
-          {skills.map((skill, index) => (
-            <div key={index} style={{ marginBottom: '10px' }}>
-              <div style={{ fontSize: '0.9rem' }}>{skill.name}</div>
-              <div style={{ height: '6px', background: '#eee', borderRadius: '4px' }}>
-                <div style={{
-                  width: `${skill.level}%`,
-                  background: '#0077ff',
-                  height: '100%',
-                  borderRadius: '4px',
-                }} />
-              </div>
-            </div>
-          ))}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: '10px' }}>
+            {skillGroups.map((group) => {
+              const isOpen = openSkillGroup === group.title;
+              return (
+                <div
+                  key={group.title}
+                  style={{
+                    border: '1px solid rgba(0, 0, 0, 0.08)',
+                    borderRadius: '8px',
+                    overflow: 'hidden',
+                    background: 'rgba(255, 255, 255, 0.9)',
+                  }}
+                >
+                  <button
+                    type="button"
+                    onClick={() => toggleSkillGroup(group.title)}
+                    style={{
+                      width: '100%',
+                      background: 'transparent',
+                      border: 'none',
+                      padding: '10px 12px',
+                      fontWeight: 'bold',
+                      textAlign: 'left',
+                      color: '#1f2937',
+                      cursor: 'pointer',
+                      display: 'flex',
+                      alignItems: 'center',
+                      justifyContent: 'space-between',
+                      gap: '8px',
+                    }}
+                    aria-expanded={isOpen}
+                    aria-controls={`skills-${group.title}`}
+                  >
+                    <span>{group.title}</span>
+                    <span style={{ fontSize: '0.9rem' }}>{isOpen ? '−' : '+'}</span>
+                  </button>
+                  <div
+                    id={`skills-${group.title}`}
+                    style={{
+                      maxHeight: isOpen ? '240px' : '0px',
+                      overflow: 'hidden',
+                      transition: 'max-height 0.6s ease',
+                      padding: isOpen ? '0 12px 10px' : '0 12px',
+                    }}
+                  >
+                    {group.items.map((skill, index) => (
+                      <div key={`${group.title}-${index}`} style={{ marginTop: '10px' }}>
+                        <div style={{ fontSize: '0.9rem' }}>{skill.name}</div>
+                        <div style={{ height: '6px', background: '#eee', borderRadius: '4px' }}>
+                          <div style={{
+                            width: `${skill.level}%`,
+                            background: '#0077ff',
+                            height: '100%',
+                            borderRadius: '4px',
+                          }} />
+                        </div>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+              );
+            })}
+          </div>
         </div>
       </div>
     </div>
