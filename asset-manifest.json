@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/static/css/main.cbfa63e0.css",
-    "main.js": "/static/js/main.a376ab08.js",
+    "main.js": "/static/js/main.ca1e5fd1.js",
     "static/media/rainingknivesmenu.png": "/static/media/rainingknivesmenu.87b9bbd31c484068859c.png",
     "static/media/rainingknivesingame.png": "/static/media/rainingknivesingame.bbed6b01ca58ec613534.png",
     "static/media/bees-left.png": "/static/media/bees-left.56672359f2109b5cb8e0.png",
@@ -19,12 +19,13 @@
     "static/media/httpserverterminal.png": "/static/media/httpserverterminal.512a39e9e392638bd84a.png",
     "static/media/pong-start.png": "/static/media/pong-start.923c25d38aa1d0cdc710.png",
     "static/media/pong-end.png": "/static/media/pong-end.e360a59d5b5ec2448067.png",
+    "static/media/Resume-Jose-Bonilla.pdf": "/static/media/Resume-Jose-Bonilla.96689ae1bdddae5af121.pdf",
     "index.html": "/index.html",
     "main.cbfa63e0.css.map": "/static/css/main.cbfa63e0.css.map",
-    "main.a376ab08.js.map": "/static/js/main.a376ab08.js.map"
+    "main.ca1e5fd1.js.map": "/static/js/main.ca1e5fd1.js.map"
   },
   "entrypoints": [
     "static/css/main.cbfa63e0.css",
-    "static/js/main.a376ab08.js"
+    "static/js/main.ca1e5fd1.js"
   ]
 }
