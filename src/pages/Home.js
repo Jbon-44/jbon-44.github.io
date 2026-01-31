@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { ReactTyped } from 'react-typed';
 import { Link } from 'react-router-dom';
 import mephoto from './mephoto.jpeg';
+import resumePdf from '../images/Resume-Jose-Bonilla.pdf';
 
 function Home() {
   const [showSkills, setShowSkills] = useState(false);
@@ -103,6 +104,15 @@ function Home() {
       fontWeight: 'bold',
       transition: 'background 0.3s ease',
     },
+    resumeButton: {
+      padding: '12px 24px',
+      background: '#0f172a',
+      color: 'white',
+      textDecoration: 'none',
+      borderRadius: '8px',
+      fontWeight: 'bold',
+      transition: 'background 0.3s ease',
+    },
   };
 
   const skills = [
@@ -137,13 +147,24 @@ function Home() {
           outline-offset: 6px;
         }
         .cta-button,
-        .skills-button {
+        .skills-button,
+        .resume-button {
           transition: transform 220ms ease, box-shadow 220ms ease;
         }
         .cta-button:hover,
         .skills-button:hover {
           transform: scale(1.04);
           box-shadow: 0 10px 18px rgba(0, 119, 255, 0.25);
+        }
+        .resume-button:hover {
+          transform: scale(1.04);
+          box-shadow: 0 10px 18px rgba(15, 23, 42, 0.25);
+        }
+        .cta-row {
+          display: flex;
+          flex-wrap: wrap;
+          gap: 12px;
+          justify-content: center;
         }
       `}</style>
       {/* Profile Info */}
@@ -168,10 +189,21 @@ function Home() {
             loop
           />
         </div>
-        <Link to="/projects" style={styles.button} className="cta-button">
-          View My Work
-        </Link>
+        <div className="cta-row">
+          <Link to="/projects" style={styles.button} className="cta-button">
+            View My Work
+          </Link>
+          <a
+            href={resumePdf}
+            style={styles.resumeButton}
+            className="resume-button"
+            download
+          >
+            Download Resume
+          </a>
+        </div>
       </div>
+      
 
       {/***********   overlay updates  **********/}
       {showOverlay && (
@@ -277,3 +309,6 @@ function Home() {
 }
 
 export default Home;
+
+
+///npm run deploy
