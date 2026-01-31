@@ -39,7 +39,7 @@ function App() {
               links: {
                 enable: true,
                 color: '#003366',     // deep navy blue
-                distance: 350,
+                distance: 200,
                 opacity: 0.5          // more visible
               },
             },
